@@ -10,9 +10,24 @@ class LikeScreen extends StatefulWidget {
 class _LikeScreenState extends State<LikeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Like'),
+    return DefaultTabController(
+      initialIndex: 1,
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const TabBar(
+            tabs: [
+              Tab(text: 'Following'),
+              Tab(text: 'You'),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          children: [
+            Center(child: Text("Following")),
+            Center(child: Text("You")),
+          ],
+        ),
       ),
     );
   }
